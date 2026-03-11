@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-label="HealingStone output preview placeholder">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#eef6ff"/>
+      <stop offset="100%" stop-color="#ffece2"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="760" fill="url(#bg)"/>
+  <rect x="80" y="80" width="1040" height="600" rx="24" fill="#ffffff" stroke="#c7d9f4" stroke-width="4"/>
+  <circle cx="360" cy="330" r="120" fill="#d8eaff"/>
+  <circle cx="430" cy="340" r="105" fill="#b8d9ff"/>
+  <circle cx="780" cy="330" r="120" fill="#ffd8c9"/>
+  <circle cx="710" cy="340" r="105" fill="#ffbea4"/>
+  <line x1="540" y1="260" x2="620" y2="260" stroke="#1577ff" stroke-width="7" stroke-linecap="round"/>
+  <line x1="540" y1="320" x2="620" y2="320" stroke="#1577ff" stroke-width="7" stroke-linecap="round"/>
+  <line x1="540" y1="380" x2="620" y2="380" stroke="#1577ff" stroke-width="7" stroke-linecap="round"/>
+  <text x="120" y="610" font-size="34" font-family="Arial, sans-serif" fill="#0f1e38">Preview slot: replace with reconstruction render + alignment heatmap</text>
+</svg>
