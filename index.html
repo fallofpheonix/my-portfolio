@@ -13,7 +13,15 @@
     <link
       href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Work+Sans:wght@400;500;600&display=swap"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Work+Sans:wght@400;500;600&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
     <link rel="stylesheet" href="assets/css/styles.css" />
   </head>
   <body>
@@ -33,6 +41,7 @@
           <li><a href="#projects">Projects</a></li>
           <li><a href="#open-source">Open Source</a></li>
           <li><a href="#skills">Skills</a></li>
+          <li><a href="#experience">Experience</a></li>
           <li><a href="#resume">Resume</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
@@ -75,7 +84,14 @@
 
           <aside class="hero-card" aria-label="Profile photo and role focus">
             <div class="profile-photo-wrap">
-              <img class="profile-photo" src="assets/images/profile-photo.jpeg" alt="Ujjwal Singh profile photo" />
+              <img
+                class="profile-photo"
+                src="assets/images/profile-photo-sm.jpeg"
+                srcset="assets/images/profile-photo-sm.jpeg 1x, assets/images/profile-photo.jpeg 2x"
+                width="176"
+                height="220"
+                alt="Ujjwal Singh profile photo"
+              />
             </div>
             <p class="stat-label">Primary Positioning</p>
             <p class="stat-value">Systems Engineering with AI and Data Components</p>
@@ -115,14 +131,20 @@
           <p class="eyebrow section-center">Featured Projects</p>
           <h2 id="projects-title" class="section-center">Complex systems with implementation proof</h2>
 
-          <div class="projects project-grid-2">
+          <div class="projects">
             <article class="project project-featured">
               <p class="project-badge">Primary Highlight</p>
               <h3>HealingStone</h3>
               <p class="project-subtitle">3D Reconstruction System for Fragmented Artifacts</p>
+              <div class="tech-tags" aria-label="Technologies used">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Open3D</span>
+                <span class="tech-tag">PyTorch</span>
+                <span class="tech-tag">RANSAC</span>
+                <span class="tech-tag">ICP</span>
+              </div>
               <figure class="project-visual">
-                <img src="assets/images/healingstone-output.svg" alt="HealingStone output preview slot" loading="lazy" />
-                <figcaption>Replace with reconstructed artifact render and alignment heatmap.</figcaption>
+                <img src="assets/images/healingstone-output.svg" alt="HealingStone output: abstract diagram of two point-cloud fragments being aligned via RANSAC and ICP" loading="lazy" width="1200" height="760" />
               </figure>
               <p class="project-label">Problem</p>
               <p>Reconstruct artifacts from partial 3D fragment scans.</p>
@@ -147,9 +169,15 @@
               <p class="project-badge">Primary Highlight</p>
               <h3>TerraHerb</h3>
               <p class="project-subtitle">Plant Disease Detection Platform</p>
+              <div class="tech-tags" aria-label="Technologies used">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">PyTorch</span>
+                <span class="tech-tag">TorchVision</span>
+                <span class="tech-tag">FastAPI</span>
+                <span class="tech-tag">OpenCV</span>
+              </div>
               <figure class="project-visual">
-                <img src="assets/images/terraherb-output.svg" alt="TerraHerb output preview slot" loading="lazy" />
-                <figcaption>Replace with prediction UI screenshot and confusion matrix.</figcaption>
+                <img src="assets/images/terraherb-output.svg" alt="TerraHerb output: classification bar chart and confusion matrix layout" loading="lazy" width="1200" height="760" />
               </figure>
               <p class="project-label">Problem</p>
               <p>Classify plant species and diseases from leaf images.</p>
@@ -173,9 +201,15 @@
             <article class="project">
               <h3>UDIE</h3>
               <p class="project-subtitle">Real-Time Urban Risk Intelligence Platform</p>
+              <div class="tech-tags" aria-label="Technologies used">
+                <span class="tech-tag">NestJS</span>
+                <span class="tech-tag">PostGIS</span>
+                <span class="tech-tag">Swift</span>
+                <span class="tech-tag">PostgreSQL</span>
+                <span class="tech-tag">Docker</span>
+              </div>
               <figure class="project-visual">
-                <img src="assets/images/udie-output.svg" alt="UDIE output preview slot" loading="lazy" />
-                <figcaption>Replace with risk-grid map and API payload snapshot.</figcaption>
+                <img src="assets/images/udie-output.svg" alt="UDIE output: geospatial risk circles overlaid on a city grid" loading="lazy" width="1200" height="760" />
               </figure>
               <p>Spatial event-sourcing system for real-time geospatial risk computation.</p>
               <ul class="project-points">
@@ -193,9 +227,15 @@
             <article class="project">
               <h3>LifeTrack</h3>
               <p class="project-subtitle">Offline-First Mobile Health Analytics System</p>
+              <div class="tech-tags" aria-label="Technologies used">
+                <span class="tech-tag">Flutter</span>
+                <span class="tech-tag">Dart</span>
+                <span class="tech-tag">Riverpod</span>
+                <span class="tech-tag">SQLite</span>
+                <span class="tech-tag">Drift</span>
+              </div>
               <figure class="project-visual">
-                <img src="assets/images/lifetrack-output.svg" alt="LifeTrack output preview slot" loading="lazy" />
-                <figcaption>Replace with mobile dashboard screenshots.</figcaption>
+                <img src="assets/images/lifetrack-output.svg" alt="LifeTrack output: mobile app UI with health metric cards and charts" loading="lazy" width="1200" height="760" />
               </figure>
               <p>Privacy-preserving mobile app with modular analytics and local persistence.</p>
               <ul class="project-points">
@@ -348,8 +388,8 @@
               <h3>HealingStone</h3>
               <p>3D reconstruction pipeline emphasizing geometric matching and learned embeddings.</p>
               <div class="repo-badges">
-                <img src="https://img.shields.io/github/stars/fallofpheonix/healingstone?style=flat-square" alt="HealingStone stars" />
-                <img src="https://img.shields.io/github/forks/fallofpheonix/healingstone?style=flat-square" alt="HealingStone forks" />
+                <img src="https://img.shields.io/github/stars/fallofpheonix/healingstone?style=flat-square" alt="HealingStone stars" loading="lazy" width="80" height="20" />
+                <img src="https://img.shields.io/github/forks/fallofpheonix/healingstone?style=flat-square" alt="HealingStone forks" loading="lazy" width="80" height="20" />
               </div>
               <a class="project-link" href="https://github.com/fallofpheonix/healingstone" target="_blank" rel="noreferrer">View Repository</a>
             </article>
@@ -357,8 +397,8 @@
               <h3>UDIE</h3>
               <p>Geospatial event intelligence engine with backend compute and mobile integration.</p>
               <div class="repo-badges">
-                <img src="https://img.shields.io/github/stars/fallofpheonix/UDIE?style=flat-square" alt="UDIE stars" />
-                <img src="https://img.shields.io/github/forks/fallofpheonix/UDIE?style=flat-square" alt="UDIE forks" />
+                <img src="https://img.shields.io/github/stars/fallofpheonix/UDIE?style=flat-square" alt="UDIE stars" loading="lazy" width="80" height="20" />
+                <img src="https://img.shields.io/github/forks/fallofpheonix/UDIE?style=flat-square" alt="UDIE forks" loading="lazy" width="80" height="20" />
               </div>
               <a class="project-link" href="https://github.com/fallofpheonix/UDIE" target="_blank" rel="noreferrer">View Repository</a>
             </article>
@@ -366,8 +406,8 @@
               <h3>TerraHerb</h3>
               <p>CNN disease classification pipeline with dataset-driven evaluation.</p>
               <div class="repo-badges">
-                <img src="https://img.shields.io/github/stars/fallofpheonix/TerraHerb?style=flat-square" alt="TerraHerb stars" />
-                <img src="https://img.shields.io/github/forks/fallofpheonix/TerraHerb?style=flat-square" alt="TerraHerb forks" />
+                <img src="https://img.shields.io/github/stars/fallofpheonix/TerraHerb?style=flat-square" alt="TerraHerb stars" loading="lazy" width="80" height="20" />
+                <img src="https://img.shields.io/github/forks/fallofpheonix/TerraHerb?style=flat-square" alt="TerraHerb forks" loading="lazy" width="80" height="20" />
               </div>
               <a class="project-link" href="https://github.com/fallofpheonix/TerraHerb" target="_blank" rel="noreferrer">View Repository</a>
             </article>
@@ -382,19 +422,116 @@
           <div class="skills-columns">
             <article class="card">
               <h3>Languages</h3>
-              <p>Python, C++, Dart</p>
+              <div class="skill-pills">
+                <span class="skill-pill skill-primary">Python</span>
+                <span class="skill-pill skill-primary">C++</span>
+                <span class="skill-pill skill-primary">Dart</span>
+              </div>
             </article>
             <article class="card">
-              <h3>Backend and Systems</h3>
-              <p>REST APIs, FastAPI, PostgreSQL, PostGIS, Linux, Docker</p>
+              <h3>Backend &amp; Systems</h3>
+              <div class="skill-pills">
+                <span class="skill-pill">FastAPI</span>
+                <span class="skill-pill">REST APIs</span>
+                <span class="skill-pill">PostgreSQL</span>
+                <span class="skill-pill">PostGIS</span>
+                <span class="skill-pill">Docker</span>
+                <span class="skill-pill">Linux</span>
+              </div>
             </article>
             <article class="card">
-              <h3>AI and Data</h3>
-              <p>PyTorch, TensorFlow, NumPy, CUDA, OpenCV, TorchVision, Open3D</p>
+              <h3>AI &amp; Data</h3>
+              <div class="skill-pills">
+                <span class="skill-pill skill-ai">PyTorch</span>
+                <span class="skill-pill skill-ai">TensorFlow</span>
+                <span class="skill-pill skill-ai">OpenCV</span>
+                <span class="skill-pill skill-ai">Open3D</span>
+                <span class="skill-pill skill-ai">NumPy</span>
+                <span class="skill-pill skill-ai">CUDA</span>
+              </div>
             </article>
             <article class="card">
-              <h3>Platforms</h3>
-              <p>Flutter, Mobile Systems, Geospatial Analytics, Git</p>
+              <h3>Platforms &amp; Tools</h3>
+              <div class="skill-pills">
+                <span class="skill-pill">Flutter</span>
+                <span class="skill-pill">Git</span>
+                <span class="skill-pill">NestJS</span>
+                <span class="skill-pill">Geospatial Analytics</span>
+                <span class="skill-pill">Mobile Systems</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="experience" aria-labelledby="experience-title">
+        <div class="container">
+          <p class="eyebrow section-center">Experience &amp; Education</p>
+          <h2 id="experience-title" class="section-center">Academic journey and engineering practice</h2>
+          <div class="timeline" role="list">
+            <article class="timeline-item" role="listitem">
+              <div class="timeline-marker" aria-hidden="true"></div>
+              <div class="timeline-content">
+                <p class="timeline-period">2022 – Present</p>
+                <h3 class="timeline-title">B.Tech — Computer Science &amp; Engineering</h3>
+                <p class="timeline-org">B.Tech · India</p>
+                <p class="timeline-desc">
+                  Coursework in algorithms, data structures, machine learning, and computer vision.
+                  Independent research into 3D reconstruction, geospatial systems, and mobile-first architectures.
+                </p>
+              </div>
+            </article>
+            <article class="timeline-item" role="listitem">
+              <div class="timeline-marker" aria-hidden="true"></div>
+              <div class="timeline-content">
+                <p class="timeline-period">2024</p>
+                <h3 class="timeline-title">Independent Research — 3D Fragment Reconstruction</h3>
+                <p class="timeline-org">Self-Directed · HealingStone Project</p>
+                <p class="timeline-desc">
+                  Designed and implemented a full geometric reconstruction pipeline using Open3D,
+                  FPFH descriptors, Siamese embeddings, RANSAC, and ICP for aligning fragmented artifact scans.
+                </p>
+                <div class="tech-tags" aria-label="Technologies used">
+                  <span class="tech-tag">Python</span>
+                  <span class="tech-tag">Open3D</span>
+                  <span class="tech-tag">PyTorch</span>
+                </div>
+              </div>
+            </article>
+            <article class="timeline-item" role="listitem">
+              <div class="timeline-marker" aria-hidden="true"></div>
+              <div class="timeline-content">
+                <p class="timeline-period">2024</p>
+                <h3 class="timeline-title">Applied AI Project — Plant Disease Classification</h3>
+                <p class="timeline-org">Self-Directed · TerraHerb Project</p>
+                <p class="timeline-desc">
+                  Built an end-to-end plant disease detection platform achieving ~97% top-1 accuracy on
+                  PlantVillage dataset. Delivered a FastAPI inference service with full training pipeline.
+                </p>
+                <div class="tech-tags" aria-label="Technologies used">
+                  <span class="tech-tag">PyTorch</span>
+                  <span class="tech-tag">TorchVision</span>
+                  <span class="tech-tag">FastAPI</span>
+                </div>
+              </div>
+            </article>
+            <article class="timeline-item" role="listitem">
+              <div class="timeline-marker" aria-hidden="true"></div>
+              <div class="timeline-content">
+                <p class="timeline-period">2023 – 2024</p>
+                <h3 class="timeline-title">Systems Engineering — Urban Risk &amp; Mobile Health</h3>
+                <p class="timeline-org">Self-Directed · UDIE &amp; LifeTrack Projects</p>
+                <p class="timeline-desc">
+                  Developed a real-time geospatial risk intelligence platform using NestJS and PostGIS,
+                  plus an offline-first Flutter health analytics app with Riverpod state management and local SQLite persistence.
+                </p>
+                <div class="tech-tags" aria-label="Technologies used">
+                  <span class="tech-tag">NestJS</span>
+                  <span class="tech-tag">PostGIS</span>
+                  <span class="tech-tag">Flutter</span>
+                  <span class="tech-tag">Dart</span>
+                </div>
+              </div>
             </article>
           </div>
         </div>
@@ -425,9 +562,25 @@
             <h2 id="contact-title">Open to ML and Computer Vision internship roles</h2>
             <p>Interest areas: computer vision systems, geospatial intelligence, and applied AI engineering.</p>
             <p>Location: India | Collaboration: Remote and hybrid opportunities.</p>
+            <div class="contact-email-row">
+              <a class="contact-email-link" href="mailto:ujjwalsingh@proton.me" aria-label="Send email to Ujjwal Singh">
+                ujjwalsingh@proton.me
+              </a>
+              <button
+                class="copy-btn"
+                data-copy="ujjwalsingh@proton.me"
+                aria-label="Copy email address to clipboard"
+                title="Copy email"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                </svg>
+                <span class="copy-label">Copy</span>
+              </button>
+            </div>
           </div>
           <div class="contact-actions">
-            <a class="btn btn-primary" href="mailto:your-email@example.com">Email</a>
+            <a class="btn btn-primary" href="mailto:ujjwalsingh@proton.me" aria-label="Email Ujjwal Singh">Email</a>
             <a class="btn btn-secondary" href="https://www.linkedin.com/in/fallofpheonix/" target="_blank" rel="noreferrer">LinkedIn</a>
             <a class="btn btn-secondary" href="https://github.com/fallofpheonix" target="_blank" rel="noreferrer">GitHub</a>
           </div>
@@ -442,6 +595,6 @@
       </div>
     </footer>
 
-    <script src="assets/js/main.js"></script>
+    <script src="assets/js/main.js" defer></script>
   </body>
 </html>

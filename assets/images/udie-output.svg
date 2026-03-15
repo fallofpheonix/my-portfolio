@@ -12,5 +12,5 @@
   <circle cx="520" cy="360" r="90" fill="#ffb799"/>
   <circle cx="760" cy="260" r="75" fill="#9be2e8"/>
   <circle cx="880" cy="420" r="85" fill="#ffd7c8"/>
-  <text x="120" y="610" font-size="34" font-family="Arial, sans-serif" fill="#0f1e38">Preview slot: replace with risk-grid map + API response sample</text>
+  <text x="600" y="710" font-size="22" font-family="Arial, sans-serif" fill="#506184" text-anchor="middle" opacity="0.5">Urban Risk Intelligence · Geospatial Event Map</text>
 </svg>

@@ -14,5 +14,5 @@
   <rect x="620" y="180" width="430" height="80" rx="14" fill="#e8f2ff"/>
   <rect x="620" y="290" width="430" height="80" rx="14" fill="#fff0e8"/>
   <rect x="620" y="400" width="430" height="80" rx="14" fill="#eef9f2"/>
-  <text x="120" y="610" font-size="34" font-family="Arial, sans-serif" fill="#0f1e38">Preview slot: replace with mobile dashboard screenshots</text>
+  <text x="600" y="710" font-size="22" font-family="Arial, sans-serif" fill="#506184" text-anchor="middle" opacity="0.5">Offline-First Mobile Health · Flutter Dashboard</text>
 </svg>

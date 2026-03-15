@@ -52,6 +52,7 @@ body::before {
   left: -130px;
   background: rgba(21, 119, 255, 0.2);
   animation: driftA 14s ease-in-out infinite alternate;
+  will-change: transform;
 }
 
 body::after {
@@ -59,11 +60,18 @@ body::after {
   bottom: -160px;
   background: rgba(255, 107, 61, 0.2);
   animation: driftB 17s ease-in-out infinite alternate;
+  will-change: transform;
 }
 
 a {
   color: inherit;
   text-decoration: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
 }
 
 .container {
@@ -157,6 +165,7 @@ a {
   padding: 9px 12px;
   border-radius: 10px;
   font-weight: 600;
+  cursor: pointer;
 }
 
 .section {
@@ -547,6 +556,190 @@ h3 {
   width: 100%;
 }
 
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 10px 0;
+}
+
+.tech-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  background: color-mix(in oklab, var(--accent) 10%, var(--surface));
+  color: color-mix(in oklab, var(--accent) 80%, var(--text));
+  border: 1px solid color-mix(in oklab, var(--accent) 25%, var(--line));
+}
+
+.skill-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 10px;
+}
+
+.skill-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 12px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  background: color-mix(in oklab, var(--surface-2) 88%, #fff);
+  color: var(--text);
+  border: 1px solid color-mix(in oklab, var(--line) 88%, #fff);
+  transition: background-color 0.18s ease, border-color 0.18s ease;
+}
+
+.skill-pill:hover {
+  background: color-mix(in oklab, var(--accent) 8%, var(--surface));
+  border-color: color-mix(in oklab, var(--accent) 25%, var(--line));
+}
+
+.skill-pill.skill-primary {
+  background: color-mix(in oklab, var(--accent) 12%, var(--surface));
+  color: color-mix(in oklab, var(--accent) 82%, var(--text));
+  border-color: color-mix(in oklab, var(--accent) 30%, var(--line));
+  font-weight: 600;
+}
+
+.skill-pill.skill-ai {
+  background: color-mix(in oklab, var(--accent-3) 10%, var(--surface));
+  color: color-mix(in oklab, var(--accent-3) 78%, var(--text));
+  border-color: color-mix(in oklab, var(--accent-3) 28%, var(--line));
+}
+
+/* Experience Timeline */
+.timeline {
+  position: relative;
+  max-width: 780px;
+  margin: 0 auto;
+  padding-left: 28px;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 6px;
+  bottom: 6px;
+  width: 2px;
+  background: linear-gradient(180deg, var(--accent), color-mix(in oklab, var(--accent-2) 60%, transparent));
+  border-radius: 2px;
+}
+
+.timeline-item {
+  position: relative;
+  padding: 0 0 32px 28px;
+}
+
+.timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+.timeline-marker {
+  position: absolute;
+  left: -22px;
+  top: 4px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--accent) 18%, var(--bg));
+}
+
+.timeline-content {
+  border: 1px solid color-mix(in oklab, var(--line) 88%, #fff);
+  background: color-mix(in oklab, var(--surface) 91%, #fff);
+  border-radius: var(--radius);
+  padding: 20px 22px;
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.24s ease, box-shadow 0.24s ease;
+}
+
+.timeline-content:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow);
+}
+
+.timeline-period {
+  margin: 0 0 4px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: color-mix(in oklab, var(--accent) 70%, var(--text));
+}
+
+.timeline-title {
+  font-size: 1.05rem;
+  margin: 0 0 2px;
+}
+
+.timeline-org {
+  margin: 0 0 8px;
+  font-size: 0.88rem;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.timeline-desc {
+  margin: 0 0 10px;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* Contact email row + copy button */
+.contact-email-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 14px 0 0;
+  padding: 10px 16px;
+  border-radius: 10px;
+  border: 1px solid color-mix(in oklab, var(--line) 88%, #fff);
+  background: color-mix(in oklab, var(--surface) 88%, #fff);
+}
+
+.contact-email-link {
+  font-weight: 600;
+  color: color-mix(in oklab, var(--accent) 74%, var(--text));
+  font-size: 0.92rem;
+}
+
+.copy-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 10px;
+  border-radius: 7px;
+  border: 1px solid var(--line);
+  background: color-mix(in oklab, var(--surface-2) 88%, #fff);
+  color: var(--muted);
+  font-size: 0.76rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+}
+
+.copy-btn:hover {
+  background: color-mix(in oklab, var(--accent) 10%, var(--surface));
+  color: color-mix(in oklab, var(--accent) 80%, var(--text));
+  border-color: color-mix(in oklab, var(--accent) 30%, var(--line));
+}
+
+.copy-btn.copied {
+  background: color-mix(in oklab, #22c55e 14%, var(--surface));
+  color: #16a34a;
+  border-color: #86efac;
+}
+
 .repo-badges {
   display: flex;
   gap: 8px;
@@ -749,5 +942,25 @@ h3 {
 
   h1 {
     font-size: clamp(1.7rem, 8vw, 2.45rem);
+  }
+}
+
+/* Accessibility: respect OS-level motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  html {
+    scroll-behavior: auto;
   }
 }
