@@ -39,6 +39,7 @@
         <ul class="menu" id="menuList">
           <li><a href="#home">Home</a></li>
           <li><a href="#projects">Projects</a></li>
+          <li><a href="#evidence">Evidence</a></li>
           <li><a href="#open-source">Open Source</a></li>
           <li><a href="#skills">Skills</a></li>
           <li><a href="#experience">Experience</a></li>
@@ -66,8 +67,8 @@
                 <p class="metric-label">Systems Built</p>
               </article>
               <article class="metric-item">
-                <p class="metric-value">~97%</p>
-                <p class="metric-label">Best Model Accuracy (TerraHerb)</p>
+                <p class="metric-value">82</p>
+                <p class="metric-label">Automated Tests Passing (verified Jul 2026)</p>
               </article>
               <article class="metric-item">
                 <p class="metric-value">1.5K+</p>
@@ -144,7 +145,8 @@
                 <span class="tech-tag">ICP</span>
               </div>
               <figure class="project-visual">
-                <img src="assets/images/healingstone-output.svg" alt="HealingStone output: abstract diagram of two point-cloud fragments being aligned via RANSAC and ICP" loading="lazy" width="1200" height="760" />
+                <img src="assets/images/evidence/final_reconstruction.png" alt="HealingStone actual output: reconstructed 3D point cloud assembled from ten sample fragments" loading="lazy" width="1200" height="1000" />
+                <figcaption>Actual pipeline output — reconstructed point cloud from an end-to-end run on the 10-fragment sample set (July 2026).</figcaption>
               </figure>
               <p class="project-label">Problem</p>
               <p>Reconstruct artifacts from partial 3D fragment scans.</p>
@@ -161,7 +163,7 @@
               <div class="link-row">
                 <a class="project-link" href="https://github.com/fallofpheonix/healingstone" target="_blank" rel="noreferrer">Code</a>
                 <a class="project-link" href="https://github.com/fallofpheonix/healingstone#readme" target="_blank" rel="noreferrer">Technical Writeup</a>
-                <a class="project-link" href="assets/images/healingstone-output.svg" target="_blank" rel="noreferrer">Output Preview</a>
+                <a class="project-link" href="assets/images/evidence/final_reconstruction.png" target="_blank" rel="noreferrer">Output Preview</a>
               </div>
             </article>
 
@@ -253,6 +255,101 @@
         </div>
       </section>
 
+      <section class="section" id="evidence" aria-labelledby="evidence-title">
+        <div class="container">
+          <p class="eyebrow section-center">Verified Evidence</p>
+          <h2 id="evidence-title" class="section-center">Measured results from real runs</h2>
+          <p class="section-center evidence-meta">
+            Every result below was produced by executing the actual code on 5 July 2026 (Apple Silicon, macOS; Python 3.12 / Flutter stable).
+            Raw artifacts are committed alongside this page.
+          </p>
+
+          <div class="cards">
+            <article class="card">
+              <p class="evidence-badge">Measured · Jul 2026</p>
+              <h3>HealingStone — End-to-End Reconstruction Run</h3>
+              <p>
+                Full pipeline executed on the bundled 10-fragment sample corpus via the
+                <code>healingstone-run</code> CLI. All ten candidate pairs aligned successfully.
+              </p>
+              <figure class="project-visual">
+                <img src="assets/images/evidence/similarity_matrix.png" alt="Learned fragment similarity matrix produced by the HealingStone run" loading="lazy" width="1200" height="1000" />
+                <figcaption>Learned fragment similarity matrix — direct output of the run.</figcaption>
+              </figure>
+              <div class="evidence-term" role="img" aria-label="HealingStone metrics.json excerpt"><span class="term-dim">$ healingstone-run --data-dir data/sample/3d</span>
+<span class="term-ok">Pipeline complete</span> — reconstructed_model.ply (1,859 points)
+
+metrics.json
+  aligned_pairs:                10
+  successful_alignments:        10
+  mean_icp_rmse:                0.0097
+  mean_chamfer_distance:        0.309
+  reconstruction_completeness:  0.749
+  graph: 10 nodes / 9 edges</div>
+              <p class="evidence-meta">
+                Test suite: 50 of 51 tests passing (<code>pytest</code>), 66% coverage on core pipeline modules.
+                One reproducibility test is order-sensitive and under investigation.
+              </p>
+              <div class="link-row">
+                <a class="project-link" href="assets/images/evidence/healingstone-metrics.json" target="_blank" rel="noreferrer">Raw metrics.json</a>
+                <a class="project-link" href="assets/images/evidence/final_reconstruction.png" target="_blank" rel="noreferrer">Reconstruction Image</a>
+              </div>
+            </article>
+
+            <article class="card">
+              <p class="evidence-badge">Measured · Jul 2026</p>
+              <h3>TerraHerb — Test Suite &amp; Live API</h3>
+              <p>
+                Full pytest suite passing, and the FastAPI service verified live: health, class
+                catalog, and the <code>/identify</code> upload path including its low-confidence guardrail.
+              </p>
+              <div class="evidence-term" role="img" aria-label="TerraHerb pytest and API output"><span class="term-dim">$ pytest tests/ -v</span>
+<span class="term-ok">======== 24 passed in 37.72s ========</span>
+  api 11 · classes 4 · inference 4 · model 5
+
+<span class="term-dim">$ curl localhost:8000/health</span>
+{"status": "healthy",
+ "service": "terraherb-ai-substrate",
+ "version": "0.2.0"}
+
+<span class="term-dim">$ curl localhost:8000/classes</span>
+{"count": 88, ...}</div>
+              <p class="evidence-meta">
+                Verified: 88-class catalog served, unsupported-media and empty-file rejection,
+                and honest low-confidence responses on out-of-scope inputs. Reported ~97% training
+                accuracy comes from the training log; an independent re-run is pending (checkpoint
+                retraining in progress).
+              </p>
+            </article>
+
+            <article class="card">
+              <p class="evidence-badge">Measured · Jul 2026</p>
+              <h3>LifeTrack — Automated Flutter Tests</h3>
+              <p>
+                Executed with <code>flutter test</code>: model serialization, health-value validators,
+                Riverpod providers, and a widget smoke test of the app shell all pass.
+              </p>
+              <div class="evidence-term" role="img" aria-label="LifeTrack flutter test output"><span class="term-dim">$ flutter test</span>
+<span class="term-ok">✓</span> Medication model — BaseHealthEntry mapping
+<span class="term-ok">✓</span> Medication model — serialize / deserialize
+<span class="term-ok">✓</span> HealthValidator — blood pressure
+<span class="term-ok">✓</span> HealthValidator — heart rate
+<span class="term-ok">✓</span> rotatingDiseaseProvider — returns 5 diseases
+<span class="term-ok">✓</span> didYouKnowProvider — returns fact
+<span class="term-ok">✓</span> LibraryTab — renders diseases
+<span class="term-ok">✓</span> App starts (widget smoke)
+
+8 executed tests, 8 passing</div>
+              <p class="evidence-meta">
+                Codebase: ~12,500 lines of Dart across modular offline-first features
+                (Drift/SQLite persistence, Riverpod state). Additional provider suites are being
+                restored after a model refactor.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
       <section class="section" id="architecture" aria-labelledby="architecture-title">
         <div class="container">
           <p class="eyebrow section-center">System Design Snapshots</p>
@@ -316,44 +413,58 @@
                   <tr>
                     <th>Project</th>
                     <th>Dataset / Scale</th>
-                    <th>Quality Metric</th>
-                    <th>Latency</th>
+                    <th>Measured Result</th>
+                    <th>Method</th>
                     <th>Status</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>TerraHerb</td>
-                    <td>PlantVillage</td>
-                    <td>Accuracy ~97%</td>
-                    <td>TBD</td>
-                    <td>Published</td>
+                    <td>HealingStone</td>
+                    <td>10-fragment sample corpus</td>
+                    <td>10/10 alignments · mean ICP RMSE 0.0097 · completeness 74.9%</td>
+                    <td>End-to-end <code>healingstone-run</code></td>
+                    <td>Measured Jul 2026</td>
                   </tr>
                   <tr>
                     <td>HealingStone</td>
-                    <td>Fragment point-cloud corpus</td>
-                    <td>Alignment metric: TBD</td>
-                    <td>TBD</td>
-                    <td>Collecting</td>
+                    <td>Test suite</td>
+                    <td>50/51 tests passing · 66% core coverage</td>
+                    <td><code>pytest</code></td>
+                    <td>Measured Jul 2026</td>
+                  </tr>
+                  <tr>
+                    <td>TerraHerb</td>
+                    <td>88-class inference API</td>
+                    <td>24/24 tests passing · live API verified (health, classes, identify)</td>
+                    <td><code>pytest</code> + live requests</td>
+                    <td>Measured Jul 2026</td>
+                  </tr>
+                  <tr>
+                    <td>TerraHerb</td>
+                    <td>PlantVillage training</td>
+                    <td>~97% accuracy (training log)</td>
+                    <td>Independent re-run pending</td>
+                    <td>Reported</td>
+                  </tr>
+                  <tr>
+                    <td>LifeTrack</td>
+                    <td>Flutter app (~12.5K LOC Dart)</td>
+                    <td>8/8 executed tests passing</td>
+                    <td><code>flutter test</code></td>
+                    <td>Measured Jul 2026</td>
                   </tr>
                   <tr>
                     <td>UDIE</td>
                     <td>Urban event stream</td>
                     <td>Risk model quality: TBD</td>
-                    <td>TBD</td>
-                    <td>Collecting</td>
-                  </tr>
-                  <tr>
-                    <td>LifeTrack</td>
-                    <td>Local health records</td>
-                    <td>Offline sync integrity: TBD</td>
-                    <td>TBD</td>
+                    <td>—</td>
                     <td>Collecting</td>
                   </tr>
                 </tbody>
               </table>
             </div>
-            <p class="benchmark-note">Use real measured values for latency, precision, recall, and throughput before interview rounds.</p>
+            <p class="benchmark-note">Rows marked “Measured” were produced by executing the code on 5 July 2026; raw artifacts are in <code>assets/images/evidence/</code>. “Reported” values await independent re-verification.</p>
           </div>
         </div>
       </section>

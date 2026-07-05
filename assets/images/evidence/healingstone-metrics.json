@@ -1,0 +1,14 @@
+{
+  "pipeline_mode": "3d",
+  "pairwise_match_accuracy": null,
+  "aligned_pairs": 10,
+  "successful_alignments": 10,
+  "mean_icp_rmse": 0.009747739158433933,
+  "mean_chamfer_distance": 0.30929342694963813,
+  "reconstruction_completeness": 0.7493804648313628,
+  "assembled_fragments": 10,
+  "graph_nodes": 10,
+  "graph_edges": 9,
+  "min_required_accuracy": 0.0,
+  "evaluation_split": "test"
+}
