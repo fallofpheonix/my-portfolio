@@ -414,10 +414,14 @@ h3 {
 
 .project-visual img {
   width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: contain;
   display: block;
   border: 1px solid var(--line);
   border-radius: 12px;
-  background: #fff;
+  background: #0d1117;
+  padding: 8px;
 }
 
 .project-visual figcaption {

@@ -133,8 +133,7 @@
           <h2 id="projects-title" class="section-center">Complex systems with implementation proof</h2>
 
           <div class="projects">
-            <article class="project project-featured">
-              <p class="project-badge">Primary Highlight</p>
+            <article class="project">
               <h3>HealingStone</h3>
               <p class="project-subtitle">3D Reconstruction System for Fragmented Artifacts</p>
               <div class="tech-tags" aria-label="Technologies used">
@@ -167,8 +166,7 @@
               </div>
             </article>
 
-            <article class="project project-featured">
-              <p class="project-badge">Primary Highlight</p>
+            <article class="project">
               <h3>TerraHerb</h3>
               <p class="project-subtitle">Plant Disease Detection Platform</p>
               <div class="tech-tags" aria-label="Technologies used">
@@ -190,8 +188,8 @@
               <p class="pipeline-line">Image -> Augmentation -> CNN -> Classification -> API Response</p>
               <p class="project-label">Technical Output</p>
               <ul class="project-points">
-                <li>Top-1 accuracy of approximately 97%</li>
-                <li>Model training and evaluation workflow</li>
+                <li>24/24 automated tests passing; live API verified (Jul 2026)</li>
+                <li>88-class model training and evaluation workflow</li>
                 <li>Inference-ready architecture for deployment</li>
               </ul>
               <div class="link-row">
@@ -215,7 +213,13 @@
                 <img src="assets/images/screenshots/udie-dashboard.png" alt="UDIE admin dashboard: dark command-center UI showing Delhi risk index, active disruptions, hotspots, and a city risk heatmap" loading="lazy" width="1200" height="750" />
                 <figcaption>Actual admin dashboard — captured from a live local run (July 2026).</figcaption>
               </figure>
-              <p>Spatial event-sourcing system for real-time geospatial risk computation.</p>
+              <p class="project-label">Problem</p>
+              <p>Compute real-time risk across a city from streaming urban event signals.</p>
+              <p class="project-label">Approach</p>
+              <p>Spatial event-sourcing backend with deterministic risk-field computation over a PostGIS grid.</p>
+              <p class="project-label">Pipeline</p>
+              <p class="pipeline-line">Event Signals -> Ingestion -> Risk Compute -> PostGIS Grid -> API + Dashboard</p>
+              <p class="project-label">Technical Output</p>
               <ul class="project-points">
                 <li>NestJS/PostGIS backend + Swift iOS integration</li>
                 <li>Dynamic risk field modeling over event streams</li>
@@ -242,7 +246,13 @@
                 <img src="assets/images/screenshots/lifetrack-app.png" alt="LifeTrack Android app: home dashboard with daily metrics and hydration tracking beside the Medical Hub personal log showing blood pressure, sleep, steps, and weight entries" loading="lazy" width="1114" height="1200" />
                 <figcaption>Actual app running on an Android emulator — home dashboard and Medical Hub (July 2026).</figcaption>
               </figure>
-              <p>Privacy-preserving mobile app with modular analytics and local persistence.</p>
+              <p class="project-label">Problem</p>
+              <p>Track personal health data privately, fully offline, with no cloud dependency.</p>
+              <p class="project-label">Approach</p>
+              <p>Modular Flutter app separating domain logic from Drift/SQLite persistence with reactive Riverpod state.</p>
+              <p class="project-label">Pipeline</p>
+              <p class="pipeline-line">Entry -> Validators -> Drift (SQLite) -> Riverpod Providers -> Dashboard + Insights</p>
+              <p class="project-label">Technical Output</p>
               <ul class="project-points">
                 <li>Flutter + Riverpod + SQLite/Drift architecture</li>
                 <li>Offline-first operation with local state integrity</li>
