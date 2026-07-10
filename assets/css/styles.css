@@ -495,40 +495,6 @@ h3 {
   padding: 4px 0;
 }
 
-.benchmark-card {
-  max-width: 980px;
-  margin: 0 auto;
-}
-
-.table-wrap {
-  overflow-x: auto;
-}
-
-.benchmark-table {
-  width: 100%;
-  border-collapse: collapse;
-  min-width: 760px;
-}
-
-.benchmark-table th,
-.benchmark-table td {
-  text-align: left;
-  border: 1px solid color-mix(in oklab, var(--line) 86%, #fff);
-  padding: 10px 12px;
-  font-size: 0.84rem;
-}
-
-.benchmark-table th {
-  background: color-mix(in oklab, var(--surface-2) 88%, #fff);
-  font-family: "Sora", sans-serif;
-}
-
-.benchmark-note {
-  margin-top: 10px;
-  color: var(--muted);
-  font-size: 0.82rem;
-}
-
 .link-row {
   display: flex;
   flex-wrap: wrap;
