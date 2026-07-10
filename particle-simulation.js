@@ -1,26 +1,29 @@
-const scale = addControl("scale", "Expansion", 10, 100, 50);
-const speed = addControl("speed", "Rotation Speed", 0, 5, 1.0);
-const chaos = addControl("chaos", "Chaos", 0, 2, 0.5);
+const warp = addControl("warp", "Warp Intensity", 0, 3, 1.0);
+const armCount = addControl("arms", "Spiral Arms", 2, 8, 4);
+const density = addControl("density", "Nebula Density", 10, 80, 40);
+const t = time * 0.4;
 
-const phi = (i / count) * Math.PI * 2;
-const theta = i * 0.1;
-const t = time * speed;
+const norm = i / count;
+const arm = Math.floor(norm * armCount);
+const armAngle = (arm / armCount) * Math.PI * 2;
+const spread = (norm * armCount - arm) * Math.PI * 2;
 
-const r1 = scale + Math.sin(t + phi * 3) * scale * 0.3;
-const r2 = scale * 0.5 + Math.cos(t * 0.7 + theta) * scale * 0.2;
+const dist = norm * density;
+const spiral = dist * 0.6 + armAngle + t * 0.3;
+const wobble = Math.sin(t * 1.7 + dist * 0.8) * warp * 3;
 
-const x = r1 * Math.sin(theta) * Math.cos(phi) + Math.sin(t + i * 0.01) * chaos * 10;
-const y = r2 * Math.sin(theta) * Math.sin(phi) + Math.cos(t * 1.3 + i * 0.02) * chaos * 10;
-const z = r1 * Math.cos(theta) + Math.sin(t * 0.5 + phi) * chaos * 5;
+const nx = Math.cos(spiral + spread) * dist + wobble;
+const ny = Math.sin(spread * 3 + t) * (dist * 0.15) + Math.sin(t * 0.9 + norm * 20) * warp * 1.5;
+const nz = Math.sin(spiral + spread) * dist + Math.cos(t * 0.6 + dist) * warp * 2;
 
-target.set(x, y, z);
+target.set(nx, ny, nz);
 
-const hue = (i / count + t * 0.05) % 1;
-const sat = 0.8 + Math.sin(t + phi) * 0.2;
-const lum = 0.4 + Math.cos(t * 0.5 + theta) * 0.15;
+const hue = (norm * 0.7 + t * 0.05 + arm * 0.1) % 1;
+const sat = 0.6 + Math.sin(t + dist * 0.3) * 0.4;
+const lum = 0.25 + Math.cos(t * 0.8 + norm * 15) * 0.2 + (1 - norm) * 0.15;
 color.setHSL(hue, sat, lum);
 
 if (i === 0) {
-  setInfo("Hyperdimensional Tesseract", "A 4D tesseract breathing in 3D space with chaotic perturbation");
-  annotate("center", new THREE.Vector3(0, 0, 0), "Singularity");
+  setInfo("Cosmic Nebula Genesis", "Stellar nursery with spiral arms and orbital debris");
+  annotate("core", new THREE.Vector3(0, 0, 0), "Proto-Star Core");
 }
